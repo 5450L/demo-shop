@@ -1,0 +1,11 @@
+.productCard {
+    display: block;
+    width: 30%;
+    margin: 1rem;
+    background-color: #f8eff1;
+}
+
+.productCard img {
+    margin: auto;
+    height: 20rem;
+}
