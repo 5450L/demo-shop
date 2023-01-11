@@ -1,0 +1,32 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  background-color: rgb(50, 50, 50);
+  height: 10vh;
+  padding: 0.25rem 2rem;
+  color: rgba(255, 255, 255, 0.875);
+  text-align: start;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+ul {
+  margin: 0;
+  list-style: none;
+}
+li a {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.875);
+}
+li a:hover {
+  color: rgba(223, 221, 221, 0.875);
+  text-decoration: none;
+}
+.icon {
+  margin-right: 0.25rem;
+}

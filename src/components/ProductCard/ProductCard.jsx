@@ -8,9 +8,9 @@ function ProductCard({ title, price, category, description, image }) {
         <img src={image} />
       </div>
       <div className={productCardStyles.textInfo}>
-        <h4>{title}</h4>
-        <p>{category}</p>
-        <p>{price} $</p>
+        <h4 className={productCardStyles.title}>{title}</h4>
+        {/* <p>{category}</p> */}
+        <p className={productCardStyles.price}>{price} $</p>
       </div>
     </div>
   );

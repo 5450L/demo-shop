@@ -1,0 +1,10 @@
+header {
+  margin: 1rem 0;
+  color: rgb(47, 47, 47);
+  text-align: start;
+}
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}

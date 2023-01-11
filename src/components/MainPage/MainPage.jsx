@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { selectProducts } from "../../redux/selectors/products-selectors";
 import { fetchProducts } from "../../redux/reducers/products-reducer";
 import ProductCard from "../ProductCard/ProductCard";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import mainPageStyles from "./MainPage.module.css";
 
 function MainPage(props) {
@@ -21,10 +23,14 @@ function MainPage(props) {
   ));
   return (
     <div>
-      <div className={mainPageStyles.container}>
-        Products
-        <div className={mainPageStyles.products}>{productsTemplateArray}</div>
+      <Header />
+      <div className={mainPageStyles.background}>
+        <div className={mainPageStyles.container}>
+          Products
+          <div className={mainPageStyles.products}>{productsTemplateArray}</div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

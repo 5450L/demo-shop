@@ -1,14 +1,14 @@
 .productCard {
   margin-bottom: 3rem;
-  width: 30%;
-  background-color: #e5e6eb;
+  width: 20%;
+  background-color: rgb(203, 204, 207);
   border: 2px solid #e5e6eb;
+  overflow: hidden;
+  color: rgb(49, 49, 49);
+  text-align: start;
 }
 .productCard:hover {
-  -webkit-box-shadow: inset 3px 3px 39px -6px rgba(92, 92, 92, 1);
-  -moz-box-shadow: inset 3px 3px 39px -6px rgba(92, 92, 92, 1);
-  box-shadow: inset 3px 3px 39px -6px rgba(92, 92, 92, 1);
-  border-color: rgb(108, 108, 108);
+  border-color: rgb(199, 197, 197);
 }
 
 .imageContainer {
@@ -17,11 +17,24 @@
 }
 
 .imageContainer img {
-  height: 15rem;
+  height: 10rem;
   width: 100%;
   margin: auto;
+  transition: transform 500ms ease;
+}
+.imageContainer img:hover {
+  transform: scale(1.1);
 }
 
-.productCard .textInfo {
+.textInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 7rem;
   padding: 0.5rem 1rem;
+}
+
+.title {
+  height: 6rem;
+  overflow: hidden;
 }
