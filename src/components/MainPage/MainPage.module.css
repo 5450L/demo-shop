@@ -1,16 +1,32 @@
-.background {
-  background: url("../../../public/images/bacground-presentation.jpg");
-}
-
 .container {
   margin: auto;
+  padding-top: 3rem;
   width: 60%;
 }
 
-.products {
-  width: 100%;
+.container .products {
+  height: 40rem;
+  overflow-y: hidden;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   column-gap: 3rem;
+}
+.container .products:hover {
+  overflow-y: scroll;
+}
+
+.container .products::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+}
+
+.container .products::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.container .products::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(70, 68, 56);
 }

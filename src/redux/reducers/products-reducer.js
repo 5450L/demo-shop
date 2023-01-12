@@ -1,29 +1,29 @@
-//action stypes
-import {productsApi} from "../../api/fakeStoreApi";
+import { productsApi } from "../../api/fakeStoreApi";
 
-const SET_PRODUCTS = 'FETCH_PRODUCTS'
+//actions types
+const SET_PRODUCTS = "SET_PRODUCTS";
 //initial state
 let initialState = {
-    entireProducts: []
-}
+  entireProducts: [],
+};
 //reducer
 const productsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_PRODUCTS:
-            return {...state, entireProducts: action.products}
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case SET_PRODUCTS:
+      return { ...state, entireProducts: action.products };
+    default:
+      return state;
+  }
+};
 //action creators
-export const setProducts = (products) => ({type: SET_PRODUCTS, products})
+export const setProducts = (products) => ({ type: SET_PRODUCTS, products });
 //thunks
 export const fetchProducts = () => {
-    return (dispatch) => {
-        productsApi.getAllProducts().then(products => {
-            dispatch(setProducts(products))
-        })
-    }
-}
+  return (dispatch) => {
+    productsApi.getAllProducts().then((products) => {
+      dispatch(setProducts(products));
+    });
+  };
+};
 
-export default productsReducer
+export default productsReducer;

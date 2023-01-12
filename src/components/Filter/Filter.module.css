@@ -1,0 +1,20 @@
+.filter {
+  margin: 1rem auto;
+}
+
+.filter button {
+  margin: 0 1rem;
+  padding: 0.25rem 0.75rem;
+
+  border-radius: 20px;
+  border-color: transparent;
+
+  color: white;
+  background-color: rgb(84, 84, 84);
+}
+
+.filter button:hover {
+  cursor: pointer;
+  background-color: rgb(135, 134, 134);
+  color: rgb(245, 248, 93);
+}
