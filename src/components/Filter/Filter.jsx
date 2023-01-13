@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import filterStyles from "./Filter.module.css";
 
 export default function Filter(props) {
   let filterButtonsTemplateArray = props.categories.map((category, index) => (
     <button
+      className={"activeButton"}
       key={index}
       onClick={() => {
-        console.log(category);
         props.setChosenCategories(category);
       }}
     >

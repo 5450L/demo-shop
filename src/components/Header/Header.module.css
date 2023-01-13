@@ -47,9 +47,26 @@ header .container {
 }
 
 .buttons .cartIcon {
-  padding: 0.5rem 0.5rem 0.25rem 0.25rem;
+  padding: 0.5rem 0 0.25rem 0.25rem;
+  height: 2rem;
+  width: 2rem;
 }
+.buttons .cartIcon svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.buttons .cartIcon .cartFilled {
+  position: relative;
+  margin-top: -1rem;
+  margin-left: 0.7rem;
+  padding: 0.1rem 0;
+  text-align: center;
 
-.cartIsOpen {
-  color: red;
+  font-size: 0.55rem;
+  font-weight: bold;
+
+  background-color: red;
+  color: white;
+
+  border-radius: 40px;
 }

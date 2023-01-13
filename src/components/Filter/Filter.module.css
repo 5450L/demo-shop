@@ -19,8 +19,8 @@
   color: rgb(245, 248, 93);
 }
 
-.active {
+button .activeButton {
   cursor: pointer;
-  background-color: rgb(135, 134, 134);
-  color: rgb(245, 248, 93);
+  background-color: rgb(252, 7, 7);
+  color: rgb(248, 93, 173);
 }

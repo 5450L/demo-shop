@@ -1,7 +1,14 @@
 import React from "react";
 import productCardStyles from "./ProductCard.module.css";
 
-function ProductCard({ title, price, category, description, image }) {
+function ProductCard({
+  title,
+  price,
+  category,
+  description,
+  image,
+  addToCart,
+}) {
   return (
     <div className={productCardStyles.productCard}>
       <div className={productCardStyles.imageContainer}>
@@ -9,8 +16,24 @@ function ProductCard({ title, price, category, description, image }) {
       </div>
       <div className={productCardStyles.textInfo}>
         <h4 className={productCardStyles.title}>{title}</h4>
-        {/* <p>{category}</p> */}
-        <p className={productCardStyles.price}>{price} $</p>
+        <div className={productCardStyles.purchase}>
+          <p className={productCardStyles.price}>{price} $</p>
+          <button
+            onClick={() => {
+              let product = {
+                title,
+                price,
+                category,
+                description,
+                image,
+                amount: 1,
+              };
+              addToCart(product);
+            }}
+          >
+            Add to cart
+          </button>
+        </div>
       </div>
     </div>
   );

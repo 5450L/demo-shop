@@ -39,3 +39,20 @@
   height: 6rem;
   overflow: hidden;
 }
+
+.purchase {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.purchase button {
+  color: rgb(36, 199, 36);
+  font-weight: bold;
+
+  background-color: transparent;
+  border: none;
+}
+.purchase button:hover {
+  color: rgb(60, 254, 60);
+  cursor: pointer;
+}

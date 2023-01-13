@@ -25,9 +25,22 @@ const productsReducer = (state = initialState, action) => {
     case SET_ENTIRE_PRODUCTS:
       return { ...state, entireProducts: action.products };
     case SET_CHOSEN_CATEGORIES:
+      if (
+        state.chosenCategories.includes("all") ||
+        action.chosenCategories === "all"
+      ) {
+        return { ...state, chosenCategories: [action.chosenCategories] };
+      } else if (state.chosenCategories.includes(action.chosenCategories)) {
+        return {
+          ...state,
+          chosenCategories: state.chosenCategories.filter(
+            (category) => category !== action.chosenCategories
+          ),
+        };
+      }
       return {
         ...state,
-        chosenCategories: [action.chosenCategories],
+        chosenCategories: [...state.chosenCategories, action.chosenCategories],
       };
     default:
       return state;

@@ -1,13 +1,11 @@
 import React from "react";
-import { useState } from "react";
 import headerStyles from "./Header.module.css";
 import { FiShoppingCart } from "react-icons/fi";
-import { Navigate, redirect, useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
+import { selectPurchasesAmount } from "../../redux/selectors/cart-selectors";
+import { connect } from "react-redux";
 
 const Header = (props) => {
-  let [cartIsOpen, toggleCart] = useState(false);
-
   return (
     <header>
       <div className={headerStyles.container}>
@@ -19,6 +17,11 @@ const Header = (props) => {
             <NavLink to="cart">
               <FiShoppingCart />
             </NavLink>
+            {props.purchasesAmount && (
+              <div className={headerStyles.cartFilled}>
+                {props.purchasesAmount}
+              </div>
+            )}
           </span>
           <div className={headerStyles.login}>
             <span>Login</span>/<span>Authorize</span>
@@ -29,4 +32,8 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+let mapStateToProps = (state) => {
+  return { purchasesAmount: selectPurchasesAmount(state) };
+};
+
+export default connect(mapStateToProps, {})(Header);

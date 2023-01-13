@@ -9,6 +9,7 @@ import {
   fetchData,
   setChosenCategories,
 } from "../../redux/reducers/products-reducer";
+import { addToCart } from "../../redux/reducers/cart-reducer";
 import ProductCard from "../ProductCard/ProductCard";
 import Filter from "../Filter/Filter";
 import mainPageStyles from "./MainPage.module.css";
@@ -30,6 +31,7 @@ function MainPage(props) {
           category={product.category}
           description={product.description}
           image={product.image}
+          addToCart={props.addToCart}
         />
       );
     });
@@ -56,6 +58,8 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchData, setChosenCategories })(
-  MainPage
-);
+export default connect(mapStateToProps, {
+  fetchData,
+  setChosenCategories,
+  addToCart,
+})(MainPage);
