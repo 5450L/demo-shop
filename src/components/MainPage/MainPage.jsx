@@ -1,35 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { selectProducts } from "../../redux/selectors/products-selectors";
-import { fetchProducts } from "../../redux/reducers/products-reducer";
+import {
+  selectProducts,
+  selectCategories,
+  selectChosenCategories,
+} from "../../redux/selectors/products-selectors";
+import {
+  fetchData,
+  setChosenCategories,
+} from "../../redux/reducers/products-reducer";
 import ProductCard from "../ProductCard/ProductCard";
 import Filter from "../Filter/Filter";
 import mainPageStyles from "./MainPage.module.css";
 
 function MainPage(props) {
-  let [categories, setCategories] = useState(["all"]);
-  useEffect(props.fetchProducts, []);
+  useEffect(props.fetchData, []);
 
-  let productsTemplateArray = props.products.map((product) => {
-    if (!categories.includes(product.category)) {
-      setCategories(categories.push(product.category));
-    }
-    return (
-      <ProductCard
-        key={product.id}
-        title={product.title}
-        price={product.price}
-        category={product.category}
-        description={product.description}
-        image={product.image}
-      />
-    );
-  });
+  let productsTemplateArray = props.products
+    .filter((product) => {
+      if (props.chosenCategories.includes("all")) return product;
+      return props.chosenCategories.includes(product.category);
+    })
+    .map((product) => {
+      return (
+        <ProductCard
+          key={product.id}
+          title={product.title}
+          price={product.price}
+          category={product.category}
+          description={product.description}
+          image={product.image}
+        />
+      );
+    });
 
   return (
     <div>
       <div className={mainPageStyles.container}>
-        <Filter categories={categories} />
+        <Filter
+          categories={props.categories}
+          setChosenCategories={props.setChosenCategories}
+          chosenCategories={props.chosenCategories}
+        />
         <div className={mainPageStyles.products}>{productsTemplateArray}</div>
       </div>
     </div>
@@ -39,7 +51,11 @@ function MainPage(props) {
 let mapStateToProps = (state) => {
   return {
     products: selectProducts(state),
+    categories: selectCategories(state),
+    chosenCategories: selectChosenCategories(state),
   };
 };
 
-export default connect(mapStateToProps, { fetchProducts })(MainPage);
+export default connect(mapStateToProps, { fetchData, setChosenCategories })(
+  MainPage
+);

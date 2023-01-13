@@ -6,15 +6,12 @@
 
 .container .products {
   height: 40rem;
-  overflow-y: hidden;
+  overflow-y: auto;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   column-gap: 3rem;
-}
-.container .products:hover {
-  overflow-y: scroll;
 }
 
 .container .products::-webkit-scrollbar {

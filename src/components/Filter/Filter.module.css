@@ -18,3 +18,9 @@
   background-color: rgb(135, 134, 134);
   color: rgb(245, 248, 93);
 }
+
+.active {
+  cursor: pointer;
+  background-color: rgb(135, 134, 134);
+  color: rgb(245, 248, 93);
+}

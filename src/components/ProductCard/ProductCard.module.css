@@ -1,5 +1,6 @@
 .productCard {
   margin-bottom: 3rem;
+  max-height: 19.25rem;
   width: 20%;
   background-color: rgb(203, 204, 207);
   border: 2px solid #e5e6eb;
