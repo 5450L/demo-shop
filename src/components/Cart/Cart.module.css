@@ -1,5 +1,5 @@
 .cartContainer {
-  position: fixed;
+  position: absolute;
   margin-left: 20%;
   margin-top: 7.5%;
   padding: 1rem 2rem;
@@ -17,10 +17,64 @@
   box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
 }
 
+.cartContainer::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.25rem;
+}
+
+.cartContainer::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.cartContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(60, 60, 59);
+  margin-right: 0.5rem;
+}
+
 .purchaseCard {
-  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto;
+  padding: 1rem;
+
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.847);
 }
 .purchaseCard img {
   width: 10rem;
   height: 10rem;
+}
+.purchaseInfo {
+  padding: 1rem 1rem 0 1rem;
+  color: rgb(47, 47, 47);
+}
+
+.price_btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.price_btn span {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.price_btn button {
+  color: rgb(204, 33, 20);
+  font-weight: bold;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+.price_btn button:hover {
+  color: rgb(253, 81, 78);
+  cursor: pointer;
+}
+.price_btn button svg {
+  height: 100%;
+  width: 1.5rem;
 }

@@ -1,7 +1,7 @@
 .container {
-  margin: auto;
-  padding-top: 3rem;
-  width: 60%;
+  margin: 0 auto;
+  padding: auto;
+  max-width: 1000px;
 }
 
 .container .products {

@@ -1,5 +1,5 @@
 .filter {
-  margin: 1rem auto;
+  margin: 0 auto 2rem auto;
 }
 
 .filter button {
@@ -19,8 +19,7 @@
   color: rgb(245, 248, 93);
 }
 
-button .activeButton {
-  cursor: pointer;
-  background-color: rgb(252, 7, 7);
-  color: rgb(248, 93, 173);
+.activeButton {
+  background-color: rgb(135, 134, 134) !important;
+  color: rgb(245, 248, 93) !important;
 }

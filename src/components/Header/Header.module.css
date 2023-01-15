@@ -1,11 +1,12 @@
 header {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   color: rgb(47, 47, 47);
   text-align: start;
   background-color: white;
+  /* height: 6vh; */
 }
 header .container {
   display: flex;

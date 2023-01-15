@@ -16,12 +16,12 @@ const Header = (props) => {
           <span className={`${headerStyles[`cartIcon`]}`}>
             <NavLink to="cart">
               <FiShoppingCart />
+              {props.purchasesAmount > 0 && (
+                <div className={headerStyles.cartFilled}>
+                  {props.purchasesAmount}
+                </div>
+              )}
             </NavLink>
-            {props.purchasesAmount && (
-              <div className={headerStyles.cartFilled}>
-                {props.purchasesAmount}
-              </div>
-            )}
           </span>
           <div className={headerStyles.login}>
             <span>Login</span>/<span>Authorize</span>
