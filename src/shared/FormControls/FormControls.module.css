@@ -1,0 +1,23 @@
+
+input {
+    width: 100%;
+
+    padding: 4px 8px;
+
+    border: 1px solid grey;
+    border-radius: 6px;
+
+}
+
+.inputContainer {
+    margin-bottom: 8px;
+}
+
+.error {
+    border-color: red;
+}
+
+p {
+    text-align: start;
+    color: red;
+}
