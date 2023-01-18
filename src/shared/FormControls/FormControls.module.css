@@ -1,7 +1,7 @@
 
 input {
-    width: 100%;
-
+    /*width: 100%;*/
+    margin: auto;
     padding: 4px 8px;
 
     border: 1px solid grey;
@@ -11,13 +11,17 @@ input {
 
 .inputContainer {
     margin-bottom: 8px;
+    text-align: center;
+}
+.inputContainer label{
+    margin-left: 4px;
 }
 
 .error {
     border-color: red;
 }
 
-p {
-    text-align: start;
+.errorMessage {
+    margin-left: -60px;
     color: red;
 }

@@ -10,10 +10,12 @@ import {reducer as formReducer} from "redux-form"
 
 import productsReducer from "./reducers/products-reducer";
 import cartReducer from "./reducers/cart-reducer";
+import authReducer from "./reducers/auth-reducer";
 
 let reducers = combineReducers({
     products: productsReducer,
     cart: cartReducer,
+    auth:authReducer,
     form: formReducer
 });
 

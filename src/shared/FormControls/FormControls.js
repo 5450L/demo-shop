@@ -6,7 +6,8 @@ export const Input = ({input, meta, ...props}) => {
         <div className={FormControlsStyles.inputContainer}>
             <input {...input}{...props}
                    className={(meta.error && meta.touched) ? FormControlsStyles.error : undefined}/>
-            {meta.error && meta.touched && <p>{meta.error}*</p>}
+            {input.name === 'rememberMe' ? <label>remember me</label> : undefined}
+            {meta.error && meta.touched && <p className={FormControlsStyles.errorMessage}>{meta.error}*</p>}
         </div>
     );
 }

@@ -4,6 +4,7 @@ import {FiShoppingCart} from "react-icons/fi";
 import {NavLink} from "react-router-dom";
 import {selectPurchasesAmount} from "../../redux/selectors/cart-selectors";
 import {connect} from "react-redux";
+import {selectIsAuth} from "../../redux/selectors/auth-selectors";
 
 const Header = (props) => {
     return (
@@ -34,7 +35,10 @@ const Header = (props) => {
 };
 
 let mapStateToProps = (state) => {
-    return {purchasesAmount: selectPurchasesAmount(state)};
+    return {
+        purchasesAmount: selectPurchasesAmount(state),
+        isAuth: selectIsAuth(state)
+    };
 };
 
 export default connect(mapStateToProps, {})(Header);
