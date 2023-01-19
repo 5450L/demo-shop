@@ -15,5 +15,12 @@ export const authApi = {
             password,
             returnSecureToken: true
         })
+    },
+    login(email, password) {
+        return axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDX0Ren1uI6xj7KXvc0FZ0oIUGte1mhcfw`, {
+            email,
+            password,
+            returnSecureToken: true
+        })
     }
 }
