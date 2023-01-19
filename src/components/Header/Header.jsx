@@ -6,39 +6,41 @@ import {NavLink} from "react-router-dom";
 import {selectPurchasesAmount} from "../../redux/selectors/cart-selectors";
 import {connect} from "react-redux";
 import {selectIsAuth, selectUserEmail} from "../../redux/selectors/auth-selectors";
-import {setMode} from "../../redux/reducers/auth-reducer";
+import {logout, setMode} from "../../redux/reducers/auth-reducer";
 
 const Header = (props) => {
     return (
         <header>
             <div className={headerStyles.container}>
-        <span className={headerStyles.logo}>
-          <NavLink to="/">Demo Shop</NavLink>
-        </span>
+                <span className={headerStyles.logo}>
+                    <NavLink to="/">Demo Shop</NavLink>
+                 </span>
 
                 <div className={headerStyles.buttons}>
-          <span className={headerStyles.cartIcon}>
-            <NavLink to="cart">
-              <FiShoppingCart/>
-                {props.purchasesAmount > 0 && (
-                    <div className={headerStyles.cartFilled}>
-                        {props.purchasesAmount}
-                    </div>
-                )}
-            </NavLink>
-          </span>
+                    <span className={headerStyles.cartIcon}>
+                         <NavLink to="cart">
+                             <FiShoppingCart/>
+                             {props.purchasesAmount > 0 && (
+                                 <div className={headerStyles.cartFilled}>
+                                     {props.purchasesAmount}
+                                 </div>
+                             )}
+                         </NavLink>
+                    </span>
                     {!props.isAuth ?
                         <div className={headerStyles.login}>
                             <span onClick={() => props.setMode(true)}><NavLink to={'/auth'}>Login</NavLink></span>
                             /
                             <span onClick={() => props.setMode(false)}><NavLink to={'/auth'}>Authorize</NavLink></span>
-                        </div> :
+                        </div>
+                        :
                         <div className={headerStyles.login}>
                             <span>{props.userEmail}</span>
-                            <span className={headerStyles.cartIcon}><a><BiLogOut/></a></span>
+                            <div className={headerStyles.logout} onClick={() => props.logout()}>
+                                <a className={headerStyles.logout}><BiLogOut/></a>
+                            </div>
                         </div>
                     }
-
                 </div>
             </div>
         </header>
@@ -53,4 +55,4 @@ let mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {setMode})(Header);
+export default connect(mapStateToProps, {setMode, logout})(Header);

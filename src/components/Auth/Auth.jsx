@@ -13,9 +13,9 @@ function Auth(props) {
     const onSubmit = (formData) => {
         if (formData) {
             if (props.isLoginMode) {
-                props.signIn(formData.email, formData.password)
+                props.signIn(formData.email, formData.password, formData.rememberMe)
             } else {
-                props.signUp(formData.email, formData.password)
+                props.signUp(formData.email, formData.password, formData.rememberMe)
             }
 
         }

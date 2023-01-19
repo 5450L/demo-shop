@@ -9,3 +9,7 @@ export const selectUserEmail = (state) => {
 export const selectIsLoginMode = (state) => {
     return state.auth.isLoginMode
 }
+
+export const selectRememberMe = (state) => {
+    return state.auth.rememberMe
+}

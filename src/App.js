@@ -5,8 +5,18 @@ import MainPage from "./components/MainPage/MainPage";
 import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header.jsx";
 import Auth from "./components/Auth/Auth";
+import {connect} from "react-redux";
+import {signIn} from "./redux/reducers/auth-reducer";
+import {getAuthCookies} from "./cookies/auth-cookies";
+import {selectRememberMe} from "./redux/selectors/auth-selectors";
 
-function App() {
+function App(props) {
+
+    const credentials = getAuthCookies()
+    console.log(credentials)
+    console.log(props.rememberMe)
+    if (credentials.email) props.signIn(credentials.email, credentials.password, props.rememberMe)
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -22,4 +32,8 @@ function App() {
     );
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+    rememberMe: selectRememberMe(state)
+})
+
+export default connect(mapStateToProps, {signIn})(App);

@@ -41,12 +41,12 @@ header .container {
     border-radius: 20px;
 }
 
-/*.buttons span:hover {*/
-/*    color: red;*/
-/*    cursor: pointer;*/
-/*}*/
+.login {
+    display: flex;
+    flex-direction: row;
+}
 
-.buttons .login span {
+.login span {
     margin: 0;
 }
 
@@ -76,3 +76,8 @@ header .container {
 
     border-radius: 40px;
 }
+
+.logout {
+    padding-top: 0.4rem;
+}
+
