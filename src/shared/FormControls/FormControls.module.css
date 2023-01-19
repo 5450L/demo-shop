@@ -1,27 +1,24 @@
-
 input {
-    /*width: 100%;*/
-    margin: auto;
-    padding: 4px 8px;
+  /*width: 100%;*/
+  margin: auto;
+  padding: 4px 8px;
 
-    border: 1px solid grey;
-    border-radius: 6px;
-
+  border: 1px solid grey;
+  border-radius: 6px;
 }
 
 .inputContainer {
-    margin-bottom: 8px;
-    text-align: center;
+  margin-bottom: 8px;
+  text-align: center;
 }
-.inputContainer label{
-    margin-left: 4px;
+.inputContainer label {
+  margin-left: 4px;
 }
 
 .error {
-    border-color: red;
+  border-color: red;
 }
 
 .errorMessage {
-    margin-left: -60px;
-    color: red;
+  color: red;
 }

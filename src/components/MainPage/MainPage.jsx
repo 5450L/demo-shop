@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+
 import {
   selectProducts,
   selectCategories,
   selectChosenCategories,
+  selectIsFetching,
 } from "../../redux/selectors/products-selectors";
+
 import {
   fetchData,
   setChosenCategories,
 } from "../../redux/reducers/products-reducer";
+
 import { addToCart } from "../../redux/reducers/cart-reducer";
+
+import { ProgressBar } from "react-loader-spinner";
+
 import ProductCard from "../ProductCard/ProductCard";
 import Filter from "../Filter/Filter";
 import mainPageStyles from "./MainPage.module.css";
@@ -38,14 +45,26 @@ function MainPage(props) {
 
   return (
     <div>
-      <div className={mainPageStyles.container}>
-        <Filter
-          categories={props.categories}
-          setChosenCategories={props.setChosenCategories}
-          chosenCategories={props.chosenCategories}
+      {props.isFetching ? (
+        <ProgressBar
+          height="400"
+          width="400"
+          ariaLabel="progress-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass="progress-bar-wrapper"
+          borderColor="rgb(50, 50, 50)"
+          barColor="#FE6C07"
         />
-        <div className={mainPageStyles.products}>{productsTemplateArray}</div>
-      </div>
+      ) : (
+        <div className={mainPageStyles.container}>
+          <Filter
+            categories={props.categories}
+            setChosenCategories={props.setChosenCategories}
+            chosenCategories={props.chosenCategories}
+          />
+          <div className={mainPageStyles.products}>{productsTemplateArray}</div>
+        </div>
+      )}
     </div>
   );
 }
@@ -55,6 +74,7 @@ let mapStateToProps = (state) => {
     products: selectProducts(state),
     categories: selectCategories(state),
     chosenCategories: selectChosenCategories(state),
+    isFetching: selectIsFetching(state),
   };
 };
 

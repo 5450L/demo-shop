@@ -1,83 +1,82 @@
 header {
-    color: rgb(47, 47, 47);
-    text-align: start;
-    background-color: white;
+  color: rgb(47, 47, 47);
+  text-align: start;
+  background-color: white;
 }
 
 header a {
-    text-decoration: none;
-    color: rgb(47, 47, 47);
+  text-decoration: none;
+  color: rgb(47, 47, 47);
 }
 
 header a:hover {
-    color: red;
-    cursor: pointer;
+  color: #fe6c07;
+  cursor: pointer;
 }
 
 header .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo {
-    font-weight: 600;
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1rem;
 }
 
 .buttons span {
-    margin: 0 1rem;
-    font-size: 1rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 20px;
+  margin: 0 1rem;
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
 }
 
 .login {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .login span {
-    margin: 0;
+  margin: 0;
 }
 
 .buttons .cartIcon {
-    padding: 0.5rem 0 0.25rem 0.25rem;
-    height: 2rem;
-    width: 2rem;
+  padding: 0.5rem 0 0.25rem 0.25rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .buttons .cartIcon svg {
-    height: 1.5rem;
-    width: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .buttons .cartIcon .cartFilled {
-    position: relative;
-    margin-top: -1rem;
-    margin-left: 0.7rem;
-    padding: 0.1rem 0;
-    text-align: center;
+  position: relative;
+  margin-top: -1rem;
+  margin-left: 0.7rem;
+  padding: 0.1rem 0;
+  text-align: center;
 
-    font-size: 0.55rem;
-    font-weight: bold;
+  font-size: 0.55rem;
+  font-weight: bold;
 
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 
-    border-radius: 40px;
+  border-radius: 40px;
 }
 
 .logout {
-    padding-top: 0.4rem;
+  padding-top: 0.4rem;
 }
-

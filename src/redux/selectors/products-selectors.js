@@ -9,3 +9,7 @@ export const selectCategories = (state) => {
 export const selectChosenCategories = (state) => {
   return state.products.chosenCategories;
 };
+
+export const selectIsFetching = (state) => {
+  return state.products.isFetching;
+};
