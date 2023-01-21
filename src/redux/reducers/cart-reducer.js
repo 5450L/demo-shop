@@ -3,6 +3,7 @@ const ADD_TO_CART = "ADD_TO_CART";
 const INCREASE_PURCHASES_AMOUNT = "INCREASE_PURCHASES_AMOUNT";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const DECREASE_PURCHASES_AMOUNT = "DECREASE_PURCHASES_AMOUNT";
+const GET_FROM_SESSION_STORAGE = "GET_FROM_SESSION_STORAGE";
 //initial state
 let initialState = {
   purchases: [],
@@ -12,9 +13,26 @@ let initialState = {
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      const increasedPurchases = [];
+      let includes = false;
+
+      state.purchases.map((purchase) => {
+        if (purchase.title === action.product.title) {
+          increasedPurchases.push({
+            ...purchase,
+            amount: purchase.amount + 1,
+          });
+          includes = true;
+        } else {
+          increasedPurchases.push(purchase);
+        }
+      });
+
+      !includes && increasedPurchases.push({ ...action.product, amount: 1 });
+
       return {
         ...state,
-        purchases: [...state.purchases, { ...action.product, amount: 1 }],
+        purchases: increasedPurchases,
       };
     case INCREASE_PURCHASES_AMOUNT:
       return {
@@ -22,17 +40,23 @@ const cartReducer = (state = initialState, action) => {
         purchasesAmount: state.purchasesAmount + 1,
       };
     case REMOVE_FROM_CART:
-      let newPurchases = state.purchases.filter(
+      let reducedPurchases = state.purchases.filter(
         (purchase, index) => index !== action.id
       );
       return {
         ...state,
-        purchases: [...newPurchases],
+        purchases: [...reducedPurchases],
       };
     case DECREASE_PURCHASES_AMOUNT:
       return {
         ...state,
-        purchasesAmount: state.purchasesAmount - 1,
+        purchasesAmount: state.purchasesAmount - action.amount,
+      };
+    case GET_FROM_SESSION_STORAGE:
+      return {
+        ...state,
+        purchases: action.payload.purchases,
+        purchasesAmount: action.payload.purchasesAmount,
       };
     default:
       return state;
@@ -45,8 +69,14 @@ export const increasePurchasesAmount = () => ({
 });
 
 export const removeFromPurchases = (id) => ({ type: REMOVE_FROM_CART, id });
-export const decreasePurchasesAmount = () => ({
+export const decreasePurchasesAmount = (amount) => ({
   type: DECREASE_PURCHASES_AMOUNT,
+  amount,
+});
+
+export const getFromSessionStorage = ({ purchases, purchasesAmount }) => ({
+  type: GET_FROM_SESSION_STORAGE,
+  payload: { purchases, purchasesAmount },
 });
 
 //thunks
@@ -57,10 +87,10 @@ export const addToCart = (product) => {
   };
 };
 
-export const removeFromCart = (id) => {
+export const removeFromCart = (id, amount) => {
   return (dispatch) => {
     dispatch(removeFromPurchases(id));
-    dispatch(decreasePurchasesAmount());
+    dispatch(decreasePurchasesAmount(amount));
   };
 };
 //

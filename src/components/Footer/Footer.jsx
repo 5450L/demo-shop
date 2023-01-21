@@ -11,7 +11,11 @@ const Footer = (props) => {
       <div className={footerStyles.contacts}>
         <ul>
           <li>
-            <a href="https://www.linkedin.com/in/oleg-sysa-49313a256/">
+            <a
+              href="https://www.linkedin.com/in/oleg-sysa-49313a256/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span className={footerStyles.icon}>
                 <IoLogoLinkedin />
               </span>
@@ -19,7 +23,7 @@ const Footer = (props) => {
             </a>
           </li>
           <li>
-            <a href="https://t.me/l5450l">
+            <a href="https://t.me/l5450l" target="_blank" rel="noreferrer">
               <span className={footerStyles.icon}>
                 <TbBrandTelegram />
               </span>
@@ -27,7 +31,7 @@ const Footer = (props) => {
             </a>
           </li>
           <li>
-            <a href="https://github.com/5450L">
+            <a href="https://github.com/5450L" target="_blank" rel="noreferrer">
               <span className={footerStyles.icon}>
                 <BsGithub />
               </span>

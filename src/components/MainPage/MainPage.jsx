@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import {
@@ -8,10 +8,7 @@ import {
   selectIsFetching,
 } from "../../redux/selectors/products-selectors";
 
-import {
-  fetchData,
-  setChosenCategories,
-} from "../../redux/reducers/products-reducer";
+import { setChosenCategories } from "../../redux/reducers/products-reducer";
 
 import { addToCart } from "../../redux/reducers/cart-reducer";
 
@@ -22,8 +19,6 @@ import Filter from "../Filter/Filter";
 import mainPageStyles from "./MainPage.module.css";
 
 function MainPage(props) {
-  useEffect(props.fetchData, []);
-
   let productsTemplateArray = props.products
     .filter((product) => {
       if (props.chosenCategories.includes("all")) return product;
@@ -79,7 +74,6 @@ let mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  fetchData,
   setChosenCategories,
   addToCart,
 })(MainPage);
