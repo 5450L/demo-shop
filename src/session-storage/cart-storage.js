@@ -16,3 +16,10 @@ export const getCart = () => {
   }
   return cartContent;
 };
+
+export const updateCart = (state) => {
+  const purchasesUpdate = state.cart.purchases;
+  const purchasesAmountUpdate = state.cart.purchasesAmount;
+
+  setCart(purchasesUpdate, purchasesAmountUpdate);
+};

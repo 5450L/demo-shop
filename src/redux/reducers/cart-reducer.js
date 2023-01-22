@@ -1,3 +1,5 @@
+import { updateCart } from "../../session-storage/cart-storage";
+
 //actions types
 const ADD_TO_CART = "ADD_TO_CART";
 const INCREASE_PURCHASES_AMOUNT = "INCREASE_PURCHASES_AMOUNT";
@@ -81,16 +83,19 @@ export const getFromSessionStorage = ({ purchases, purchasesAmount }) => ({
 
 //thunks
 export const addToCart = (product) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(addToPurchases(product));
     dispatch(increasePurchasesAmount());
+
+    updateCart(getState());
   };
 };
 
 export const removeFromCart = (id, amount) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(removeFromPurchases(id));
     dispatch(decreasePurchasesAmount(amount));
+    updateCart(getState());
   };
 };
 //

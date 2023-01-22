@@ -18,7 +18,6 @@ function Cart(props) {
   let firstRender = true;
   let [totalCost, setTotalCost] = useState(0);
   useEffect(() => {
-    setCart(props.purchases, props.purchasesAmount);
     if (firstRender === true && props.purchases.length > 0) {
       setTotalCost(0);
       props.purchases.map((purchase) => {
@@ -63,4 +62,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { removeFromCart })(Cart);
+export default connect(mapStateToProps, {
+  removeFromCart,
+})(Cart);
