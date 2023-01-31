@@ -52,6 +52,9 @@ const AuthForm = (props) => {
           validate={[required, minLength6]}
         />
       </div>
+      {props.error && (
+        <div className={authStyles.formError}>*{props.error.message}</div>
+      )}
       <div className={authStyles.submitButton}>
         <button>{props.isLoginMode ? "Sign In" : "Sign Up"}</button>
       </div>

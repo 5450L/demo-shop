@@ -1,5 +1,6 @@
 import { authApi } from "../../api/firebaseApi";
 import { removeAuthCookies, setAuthCookies } from "../../cookies/auth-cookies";
+import { stopSubmit } from "redux-form";
 
 //actions types
 const AUTHORIZE = "AUTHORIZE";
@@ -45,7 +46,10 @@ export const signUp = (email, password) => {
         dispatch(authorize(email));
         setAuthCookies(email, password);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        dispatch(stopSubmit("auth", { _error: error }));
+        console.log(error);
+      });
   };
 };
 
@@ -54,10 +58,14 @@ export const signIn = (email, password) => {
     authApi
       .login(email, password)
       .then((response) => {
+        console.log(response);
         dispatch(authorize(email));
         setAuthCookies(email, password);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        dispatch(stopSubmit("auth", { _error: " email or pass is wrong" }));
+        console.log(error);
+      });
   };
 };
 

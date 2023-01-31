@@ -1,24 +1,31 @@
 form {
-    margin: auto;
-    width: 400px;
-    padding: 1rem 2rem;
+  margin: auto;
+  width: 400px;
+  padding: 1rem 2rem;
 
-    background-color: rgb(239, 235, 235);
+  background-color: rgb(239, 235, 235);
 
-    text-align: start;
+  text-align: start;
 
-    border-radius: 1rem;
+  border-radius: 1rem;
 
-    -webkit-box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
-    -moz-box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
-    box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
+  -webkit-box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
+  -moz-box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
+  box-shadow: 0px 0px 44px 8px rgba(74, 70, 74, 1);
 }
 
 form h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 form .submitButton {
-    text-align: center;
+  text-align: center;
+}
+
+.formError {
+  color: red;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1rem;
 }
