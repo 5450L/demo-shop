@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import authStyles from "./Auth.module.css";
 import { Field, reduxForm } from "redux-form";
 import { minLenghtCreator, required } from "../../shared/validators";
@@ -10,6 +10,7 @@ import {
 import { connect } from "react-redux";
 import { Navigate } from "react-router";
 import { signIn, signUp } from "../../redux/reducers/auth-reducer";
+import { sendEmail } from "../../api/emailJS";
 
 function Auth(props) {
   const onSubmit = (formData) => {
@@ -32,8 +33,15 @@ function Auth(props) {
 
 const AuthForm = (props) => {
   const minLength6 = minLenghtCreator(6);
+
+  const authForm = useRef();
+
   return (
-    <form className={authStyles.authForm} onSubmit={props.handleSubmit}>
+    <form
+      ref={authForm}
+      className={authStyles.authForm}
+      onSubmit={props.handleSubmit}
+    >
       <h2>{props.isLoginMode ? "Login" : "Authenticate"}</h2>
       <div>
         <Field
@@ -56,7 +64,13 @@ const AuthForm = (props) => {
         <div className={authStyles.formError}>*{props.error.message}</div>
       )}
       <div className={authStyles.submitButton}>
-        <button>{props.isLoginMode ? "Sign In" : "Sign Up"}</button>
+        <button
+          onClick={() => {
+            sendEmail(authForm);
+          }}
+        >
+          {props.isLoginMode ? "Sign In" : "Sign Up"}
+        </button>
       </div>
     </form>
   );
